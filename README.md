@@ -20,7 +20,7 @@ $ sudo ./xampp-linux-*-installer.run
 
 <br /><br />
 
-Run this command<br />
+Run this command :<br />
 $pip install mysql-connector-python
 
 <br /><br />
@@ -31,3 +31,8 @@ To stop/Start Xampp in future, run this commands :<br />
 sudo /opt/lampp/lampp stop
 sudo /opt/lampp/lampp start
 <br /><br />
+
+
+Finally run this to get Django:<br />
+
+sudo pip3 install Django==3.1.4
