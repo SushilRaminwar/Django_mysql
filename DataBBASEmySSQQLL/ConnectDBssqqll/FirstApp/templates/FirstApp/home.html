@@ -1,0 +1,32 @@
+
+asd
+<BR><BR>
+
+
+{% for qwe in tutorials %}
+
+        Title {{ forloop.counter }}: {{qwe.tutorial_title}}<BR><BR>
+    
+{% endfor %}
+
+{{tutorials.count}}
+<BR><BR>
+    ___________________________________________________
+    ___________________________________________________
+    <BR><BR>
+{% with n=tutorials.count%} 
+    {% with ''|center:n as range %}
+        {% for _ in range %}
+           qwe {{ forloop.counter }}<BR><BR>
+           
+        {% endfor %}
+    {% endwith %}
+{% endwith %}
+
+___________________________________________________
+<BR><BR>
+{% for qwe in tutorials %}
+
+        Title : {{qwe.tutorial_title}}<BR><BR>
+    
+{% endfor %}
