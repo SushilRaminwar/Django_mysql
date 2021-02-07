@@ -1,7 +1,7 @@
 # Django_mysql
 
 OS : Ubuntu 20
-
+DB : Mysql
 Django app with Mysql <br />
 1>connecting with mysql <br />
 2>reading form mysql table and displaying on web page<br />
