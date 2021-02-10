@@ -28,6 +28,7 @@ class Student(models.Model):
     sclass = models.CharField(max_length=100)
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
+    OEE = models.FloatField(max_length=3, null = True,blank = True)
     class Meta:
         db_table = "students"
     def __str__(self):
@@ -38,3 +39,14 @@ class ContactForm(models.Model):
     email= models.EmailField()
     contact= models.CharField(max_length=50)
     message= models.CharField(max_length=200)
+
+
+
+class OEEcalculations(models.Model):
+    OEE = models.FloatField(max_length=3)
+    A = models.FloatField(max_length=3)
+    P = models.FloatField(max_length=3)
+    Q = models.FloatField(max_length=3)
+
+    def __str__(self):
+        return f'{self.OEE}, {self.A}'

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OEE</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/tabview/assets/skins/night/tabview.css">
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/datatable/assets/skins/night/datatable.css">
+</head>
+<body>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User ID</th>
+		<th>OEE</th>
+		<th>A</th>
+		<th>P</th>
+		<th>Q</th>
+    
+      </tr>
+    </thead>
+    <tbody>
+	{% for stud in OEE %}  
+      <tr>
+        <td>{{stud.id}}</td>
+        <td>{{stud.OEE}}</td>
+		<td>{{stud.A}}</td>
+		<td>{{stud.P}}</td>
+		<td>{{stud.Q}}</td>
+   
+      </tr>
+	  {% endfor %} 
+	</tbody>
+</table>	
+</div>
+
+</body>
+</html>

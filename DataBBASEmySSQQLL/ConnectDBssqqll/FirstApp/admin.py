@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tutorial, Student, ContactForm
+from .models import Tutorial, Student, ContactForm, OEEcalculations
 
 # Register your models here.
 #admin.site.register(Tutorial)
@@ -19,3 +19,10 @@ class StudentAdmin(admin.ModelAdmin):
 
 # Register the admin class with the associated model
 admin.site.register(Student, StudentAdmin)
+
+class OEEAdmin(admin.ModelAdmin):
+    list_display = ('OEE', 'A')
+
+
+# Register the admin class with the associated model
+admin.site.register(OEEcalculations, OEEAdmin)

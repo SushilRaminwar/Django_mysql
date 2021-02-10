@@ -10,4 +10,4 @@ class FormContactForm(forms.ModelForm):
 class FormStudentForm(forms.ModelForm):
     class Meta:
         model= Student
-        fields= ["roll", "sclass", "fname","lname"]
+        fields= ["roll", "sclass", "fname","lname","OEE"]
