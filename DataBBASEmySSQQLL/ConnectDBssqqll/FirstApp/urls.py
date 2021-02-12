@@ -8,5 +8,5 @@ urlpatterns = [
     path('studform/', views.studform),
     path('showOEE/', views.showOEE),
     path('EnterOEEdetails/', views.EnterOEEdetails),
-
+    path('userReg/', views.Userregistration),
 ]

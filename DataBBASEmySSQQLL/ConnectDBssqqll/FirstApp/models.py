@@ -50,3 +50,12 @@ class OEEcalculations(models.Model):
 
     def __str__(self):
         return f'{self.OEE}, {self.A}'
+
+class Userreg(models.Model):   
+    uname = models.CharField(max_length=100)
+    uemail = models.CharField(max_length=100)
+    pwd = models.CharField(max_length=100)
+    martialstatus = models.CharField(max_length=100)
+    gender = models.CharField(max_length=100)
+    class Meta:
+        db_table = "NewUserReg"

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Tutorial, Student, OEEcalculations
+from .models import Tutorial, Student, OEEcalculations, Userreg
 from .forms import FormContactForm, FormStudentForm, FormOEEForm
-
+from django.contrib import messages
 # Create your views here.
 def homepage(request):
     #return HttpResponse("asdasd")
@@ -73,9 +73,25 @@ def EnterOEEdetails(request):
         obj.OEE = (A * P * Q)/10000
         obj.save()
 
-        studentsfromOEE = Student.objects.filter(roll=11).update(OEE=80.0)
+        studentsfromOEE = Student.objects.filter(roll=11).update(OEE=obj.OEE)
 
 
         form.save()
     context= {'form': form }
     return render(request, 'FirstApp/EnterOEEForm.html', context)
+
+
+def Userregistration(request):
+    if request.method=="POST":
+        if request.POST.get('uname') and request.POST.get('uemail') and request.POST.get('pwd') and request.POST.get('martialstatus') and request.POST.get('gender'):
+            saverecord = Userreg()
+            saverecord.uname=request.POST.get('uname')
+            saverecord.uemail=request.POST.get('uemail')
+            saverecord.pwd=request.POST.get('pwd')
+            saverecord.martialstatus=request.POST.get('martialstatus')
+            saverecord.gender=request.POST.get('gender')
+            saverecord.save()
+            messages.success(request, "New User registraiotn details saved successfully...!")
+            return render(request,'FirstApp/index.html')
+    else:
+            return render(request,'FirstApp/index.html')
