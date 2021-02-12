@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Tutorial, Student, OEEcalculations
-from .forms import FormContactForm, FormStudentForm
+from .forms import FormContactForm, FormStudentForm, FormOEEForm
 
 # Create your views here.
 def homepage(request):
@@ -55,5 +55,23 @@ def calcul(request):
     return OEE
 
 def showOEE(request):
-    OEE = OEEcalculations.objects.all()
-    return render(request,"FirstApp/showoee.html",{'OEE':OEE})
+    #OEE = OEEcalculations.objects.all()
+    #Entry.objects.all().filter(pub_date__year=2006)
+    OEEasd = OEEcalculations.objects.filter(OEE__lte=100, OEE__gte=70)
+
+    return render(request,"FirstApp/showoee.html",{'OEE':OEEasd})
+
+def EnterOEEdetails(request):
+    form= FormOEEForm(request.POST or None)
+    
+    if form.is_valid():
+        A = form.cleaned_data['A']
+        P = form.cleaned_data['P']
+        Q = form.cleaned_data['Q']
+
+        obj = form.save(commit=False)
+        obj.OEE = (A * P * Q)/10000
+        obj.save()
+        form.save()
+    context= {'form': form }
+    return render(request, 'FirstApp/EnterOEEForm.html', context)

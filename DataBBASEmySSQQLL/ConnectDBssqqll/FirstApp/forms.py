@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactForm, Student
+from .models import ContactForm, Student, OEEcalculations
 
 class FormContactForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,9 @@ class FormStudentForm(forms.ModelForm):
     class Meta:
         model= Student
         fields= ["roll", "sclass", "fname","lname","OEE"]
+
+class FormOEEForm(forms.ModelForm):
+    class Meta:
+        model= OEEcalculations
+        fields= ["A", "P", "Q"]
+        

@@ -43,10 +43,10 @@ class ContactForm(models.Model):
 
 
 class OEEcalculations(models.Model):
-    OEE = models.FloatField(max_length=3)
-    A = models.FloatField(max_length=3)
-    P = models.FloatField(max_length=3)
-    Q = models.FloatField(max_length=3)
+    OEE = models.FloatField(max_length=3, null = True)
+    A = models.FloatField(max_length=3, null = True)
+    P = models.FloatField(max_length=3, null = True)
+    Q = models.FloatField(max_length=3, null = True)
 
     def __str__(self):
         return f'{self.OEE}, {self.A}'
