@@ -72,6 +72,10 @@ def EnterOEEdetails(request):
         obj = form.save(commit=False)
         obj.OEE = (A * P * Q)/10000
         obj.save()
+
+        studentsfromOEE = Student.objects.filter(roll=11).update(OEE=80.0)
+
+
         form.save()
     context= {'form': form }
     return render(request, 'FirstApp/EnterOEEForm.html', context)
